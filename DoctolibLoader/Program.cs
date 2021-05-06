@@ -15,7 +15,7 @@ namespace DoctolibLoader
         public const string wohnhaftHS = "wohnhaftHS";
         public const string prio4 = "Prio4";
         public static Dictionary<string, string> urlsPerReason = new Dictionary<string, string> {
-            { wohnhaftHS, "https://www.doctolib.de/availabilities.json?start_date=<#PLACEHOLDERDATE>&visit_motive_ids=2838662&agenda_ids=435743-379939-460713-432243&insurance_sector=public&practice_ids=150739&limit=6" },
+            { wohnhaftHS, "https://www.doctolib.de/availabilities.json?start_date=<#PLACEHOLDERDATE>&visit_motive_ids=2838662&agenda_ids=435743-379939-432243&insurance_sector=public&practice_ids=150739&limit=6" },
             { prio4,"https://www.doctolib.de/availabilities.json?start_date=<#PLACEHOLDERDATE><&visit_motive_ids=2736075&agenda_ids=435743-379939-460713-432243&insurance_sector=public&practice_ids=150739&limit=6" 
                  }
         };
