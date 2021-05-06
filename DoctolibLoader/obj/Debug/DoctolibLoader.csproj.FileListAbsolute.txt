@@ -1,0 +1,11 @@
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\bin\Debug\DoctolibLoader.exe.config
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\bin\Debug\DoctolibLoader.exe
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\bin\Debug\DoctolibLoader.pdb
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\obj\Debug\DoctolibLoader.csprojAssemblyReference.cache
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\obj\Debug\DoctolibLoader.csproj.CoreCompileInputs.cache
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\obj\Debug\DoctolibLoader.exe
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\obj\Debug\DoctolibLoader.pdb
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\bin\Debug\Colorful.Console.dll
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hakan\source\repos\DoctolibLoader\DoctolibLoader\obj\Debug\DoctolibLoader.csproj.CopyComplete
