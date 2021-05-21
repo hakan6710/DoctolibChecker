@@ -1,0 +1,1227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RazorLight</name>
+    </assembly>
+    <members>
+        <member name="P:RazorLight.Caching.TemplateCacheItem.Key">
+            <summary>
+            Gets unique template key
+            </summary>
+        </member>
+        <member name="P:RazorLight.Caching.TemplateCacheItem.TemplatePageFactory">
+            <summary>
+            Gets the <see cref="T:RazorLight.ITemplatePage"/> factory
+            </summary>
+        </member>
+        <member name="M:RazorLight.Caching.TemplateCacheItem.#ctor(System.String,System.Func{RazorLight.ITemplatePage})">
+            <summary>
+            Initializes a new instance of <see cref="T:RazorLight.Caching.TemplateCacheItem"/>.
+            </summary>
+            <param name="key">The unique key of the <see cref="T:RazorLight.ITemplatePage"/>.</param>
+            <param name="pageFactory">The <see cref="T:RazorLight.ITemplatePage"/> factory.</param>
+        </member>
+        <member name="P:RazorLight.Compilation.CompiledTemplateDescriptor.Item">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Razor.Hosting.RazorCompiledItem"/> descriptor for this view.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Compilation.CompiledTemplateDescriptor.Type">
+            <summary>
+            Gets the type of the compiled item.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Compilation.TemplateFactoryResult.#ctor(RazorLight.Compilation.CompiledTemplateDescriptor,System.Func{RazorLight.ITemplatePage})">
+            <summary>
+            Initializes a new instance of <see cref="T:RazorLight.Compilation.TemplateFactoryResult"/> with the
+            specified <see cref="T:RazorLight.ITemplatePage"/> factory.
+            </summary>
+            <param name="templatePageFactory">The <see cref="T:RazorLight.ITemplatePage"/> factory.</param>
+            <param name="viewDescriptor">The <see cref="T:RazorLight.Compilation.CompiledTemplateDescriptor"/>.</param>
+        </member>
+        <member name="M:RazorLight.EngineFactory.ForFileSystem(System.String)">
+            <summary>
+            Creates RazorLightEngine with a filesystem razor project
+            </summary>
+            <param name="root">Root folder where views are stored</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.EngineFactory.ForFileSystem(System.String,RazorLight.RazorLightOptions)">
+            <summary>
+            Creates RazorLightEngine with a filesystem razor project
+            </summary>
+            <param name="root">Root folder where views are stored</param>
+            <param name="options">Engine options</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.EngineFactory.ForEmbeddedResources(System.Type)">
+            <summary>
+            Creates RazorLightEngine with a embedded resource razor project
+            </summary>
+            <param name="rootType">Type of the root.</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.EngineFactory.ForEmbeddedResources(System.Type,RazorLight.RazorLightOptions)">
+            <summary>
+            Creates RazorLightEngine with a embedded resource razor project
+            </summary>
+            <param name="rootType">Type of the root.</param>
+            <param name="options">Engine options</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.EngineFactory.Create(RazorLight.Razor.RazorLightProject,RazorLight.RazorLightOptions)">
+             <summary>
+            Creates RazorLightEngine with a custom RazorLightProject
+             </summary>
+             <param name="project">The project</param>
+             <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.EngineHandler.CompileTemplateAsync(System.String)">
+            <summary>
+            Search and compile a template with a given key
+            </summary>
+            <param name="key">Unique key of the template</param>
+            <param name="compileIfNotCached">If true - it will try to get a template with a specified key and compile it</param>
+            <returns>An instance of a template</returns>
+        </member>
+        <member name="M:RazorLight.EngineHandler.RenderTemplateAsync``1(RazorLight.ITemplatePage,``0,System.Dynamic.ExpandoObject)">
+            <summary>
+            Renders a template with a given model
+            </summary>
+            <param name="templatePage">Instance of a template</param>
+            <param name="model">Template model</param>
+            <param name="modelType">Type of the model</param>
+            <param name="viewBag">Dynamic viewBag of the template</param>
+            <returns>Rendered string</returns>
+        </member>
+        <member name="M:RazorLight.EngineHandler.RenderTemplateAsync``1(RazorLight.ITemplatePage,``0,System.IO.TextWriter,System.Dynamic.ExpandoObject)">
+            <summary>
+            Renders a template to the specified <paramref name="textWriter"/>
+            </summary>
+            <param name="templatePage">Instance of a template</param>
+            <param name="model">Template model</param>
+            <param name="modelType">Type of the model</param>
+            <param name="viewBag">Dynamic viewBag of the page</param>
+            <param name="textWriter">Output</param>
+        </member>
+        <member name="M:RazorLight.EngineHandler.CompileRenderAsync``1(System.String,``0,System.Dynamic.ExpandoObject)">
+            <summary>
+            Compiles and renders a template with a given <paramref name="key"/>
+            </summary>
+            <param name="key">Unique key of the template</param>
+            <param name="model">Template model</param>
+            <param name="modelType">Type of the model</param>
+            <param name="viewBag">Dynamic ViewBag (can be null)</param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.EngineHandler.CompileRenderStringAsync``1(System.String,System.String,``0,System.Dynamic.ExpandoObject)">
+            <summary>
+            Compiles and renders a template. Template content is taken directly from <paramref name="content"/> parameter
+            </summary>
+            <param name="key">Unique key of the template</param>
+            <param name="content">Content of the template</param>
+            <param name="model">Template model</param>
+            <param name="modelType">Type of the model</param>
+            <param name="viewBag">Dynamic ViewBag</param>
+        </member>
+        <member name="M:RazorLight.Generation.RazorSourceGenerator.GenerateCodeAsync(System.String)">
+            <summary>
+            Parses the template specified by the project item <paramref name="key"/>.
+            </summary>
+            <param name="key">The template path.</param>
+            <returns>The <see cref="T:RazorLight.Generation.IGeneratedRazorTemplate"/>.</returns>
+        </member>
+        <member name="M:RazorLight.Generation.RazorSourceGenerator.GenerateCodeAsync(RazorLight.Razor.RazorLightProjectItem)">
+            <summary>
+            Parses the template specified by <paramref name="projectItem"/>.
+            </summary>
+            <param name="projectItem">The <see cref="T:RazorLight.Razor.RazorLightProjectItem"/>.</param>
+            <returns>The <see cref="T:RazorLight.Generation.IGeneratedRazorTemplate"/>.</returns>
+        </member>
+        <member name="M:RazorLight.Generation.RazorSourceGenerator.CreateCodeDocumentAsync(RazorLight.Razor.RazorLightProjectItem)">
+            <summary>
+            Generates a <see cref="T:Microsoft.AspNetCore.Razor.Language.RazorCodeDocument"/> for the specified <paramref name="projectItem"/>.
+            </summary>
+            <param name="projectItem">The <see cref="T:RazorLight.Razor.RazorLightProjectItem"/>.</param>
+            <returns>The created <see cref="T:Microsoft.AspNetCore.Razor.Language.RazorCodeDocument"/>.</returns>
+        </member>
+        <member name="M:RazorLight.Generation.RazorSourceGenerator.GetImportsAsync(RazorLight.Razor.RazorLightProjectItem)">
+            <summary>
+            Gets <see cref="T:Microsoft.AspNetCore.Razor.Language.RazorSourceDocument"/> that are applicable to the specified <paramref name="projectItem"/>.
+            </summary>
+            <param name="projectItem">The <see cref="T:RazorLight.Razor.RazorLightProjectItem"/>.</param>
+            <returns>The sequence of applicable <see cref="T:Microsoft.AspNetCore.Razor.Language.RazorSourceDocument"/>.</returns>
+        </member>
+        <member name="M:RazorLight.IEngineFactory.ForFileSystem(System.String)">
+            <summary>
+            Creates RazorLightEngine with a filesystem razor project
+            </summary>
+            <param name="root">Root folder where views are stored</param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.IEngineFactory.ForFileSystem(System.String,RazorLight.RazorLightOptions)">
+            <summary>
+            Creates RazorLightEngine with a filesystem razor project
+            </summary>
+            <param name="root">Root folder where views are stored</param>
+            <param name="options">Engine options</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.IEngineFactory.ForEmbeddedResources(System.Type)">
+            <summary>
+            Creates RazorLightEngine with a embedded resource razor project
+            </summary>
+            <param name="rootType">Type of the root.</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.IEngineFactory.ForEmbeddedResources(System.Type,RazorLight.RazorLightOptions)">
+            <summary>
+            Creates RazorLightEngine with a embedded resource razor project
+            </summary>
+            <param name="rootType">Type of the root.</param>
+            <param name="options">Engine options</param>
+            <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="M:RazorLight.IEngineFactory.Create(RazorLight.Razor.RazorLightProject,RazorLight.RazorLightOptions)">
+             <summary>
+            Creates RazorLightEngine with a custom RazorLightProject
+             </summary>
+             <param name="project">The project</param>
+             <returns>Instance of RazorLightEngine</returns>
+        </member>
+        <member name="T:RazorLight.Internal.IViewBufferScope">
+            <summary>
+            Creates and manages the lifetime of <see cref="T:ViewBufferValue[]"/> instances.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.IViewBufferScope.GetPage(System.Int32)">
+            <summary>
+            Gets a <see cref="T:ViewBufferValue[]"/>.
+            </summary>
+            <param name="pageSize">The minimum size of the segment.</param>
+            <returns>The <see cref="T:ViewBufferValue[]"/>.</returns>
+        </member>
+        <member name="M:RazorLight.Internal.IViewBufferScope.ReturnSegment(RazorLight.Internal.ViewBufferValue[])">
+            <summary>
+            Returns a <see cref="T:ViewBufferValue[]"/> that can be reused.
+            </summary>
+            <param name="segment">The <see cref="T:ViewBufferValue[]"/>.</param>
+        </member>
+        <member name="M:RazorLight.Internal.IViewBufferScope.CreateWriter(System.IO.TextWriter)">
+            <summary>
+            Creates a <see cref="T:RazorLight.Internal.PagedBufferedTextWriter"/> that will delegate to the provided
+            <paramref name="writer"/>.
+            </summary>
+            <param name="writer">The <see cref="T:System.IO.TextWriter"/>.</param>
+            <returns>A <see cref="T:RazorLight.Internal.PagedBufferedTextWriter"/>.</returns>
+        </member>
+        <member name="T:RazorLight.Internal.MemoryPoolViewBufferScope">
+            <summary>
+            A <see cref="T:RazorLight.Internal.IViewBufferScope"/> that uses pooled memory.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.MemoryPoolViewBufferScope.#ctor(System.Buffers.ArrayPool{RazorLight.Internal.ViewBufferValue},System.Buffers.ArrayPool{System.Char})">
+            <summary>
+            Initializes a new instance of <see cref="T:RazorLight.Internal.MemoryPoolViewBufferScope"/>.
+            </summary>
+            <param name="viewBufferPool">
+            The <see cref="T:System.Buffers.ArrayPool`1"/> for creating <see cref="T:RazorLight.Internal.ViewBufferValue"/> instances.
+            </param>
+            <param name="charPool">
+            The <see cref="T:System.Buffers.ArrayPool`1"/> for creating <see cref="T:RazorLight.Internal.PagedBufferedTextWriter"/> instances.
+            </param>
+        </member>
+        <member name="M:RazorLight.Internal.MemoryPoolViewBufferScope.GetPage(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.MemoryPoolViewBufferScope.ReturnSegment(RazorLight.Internal.ViewBufferValue[])">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.MemoryPoolViewBufferScope.CreateWriter(System.IO.TextWriter)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.MemoryPoolViewBufferScope.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.PagedCharBuffer.Clear">
+            <summary>
+            Return all but one of the pages to the <see cref="T:RazorLight.Internal.ICharBufferSource"/>.
+            This way if someone writes a large chunk of content, we can return those buffers and avoid holding them
+            for extended durations.
+            </summary>
+        </member>
+        <member name="T:RazorLight.Internal.ViewBuffer">
+            <summary>
+            An <see cref="T:Microsoft.AspNetCore.Html.IHtmlContentBuilder"/> that is backed by a buffer provided by <see cref="T:RazorLight.Internal.IViewBufferScope"/>.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.#ctor(RazorLight.Internal.IViewBufferScope,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:RazorLight.Internal.ViewBuffer"/>.
+            </summary>
+            <param name="bufferScope">The <see cref="T:RazorLight.Internal.IViewBufferScope"/>.</param>
+            <param name="name">A name to identify this instance.</param>
+            <param name="pageSize">The size of buffer pages.</param>
+        </member>
+        <member name="P:RazorLight.Internal.ViewBuffer.Count">
+            <summary>
+            Get the <see cref="T:RazorLight.Internal.ViewBufferPage"/> count.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Internal.ViewBuffer.Item(System.Int32)">
+            <summary>
+            Gets a <see cref="T:RazorLight.Internal.ViewBufferPage"/>.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.Append(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.AppendHtml(Microsoft.AspNetCore.Html.IHtmlContent)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.AppendHtml(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.Clear">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.WriteTo(System.IO.TextWriter,System.Text.Encodings.Web.HtmlEncoder)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBuffer.WriteToAsync(System.IO.TextWriter,System.Text.Encodings.Web.HtmlEncoder)">
+            <summary>
+            Writes the buffered content to <paramref name="writer"/>.
+            </summary>
+            <param name="writer">The <see cref="T:System.IO.TextWriter"/>.</param>
+            <param name="encoder">The <see cref="T:System.Text.Encodings.Web.HtmlEncoder"/>.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> which will complete once content has been written.</returns>
+        </member>
+        <member name="T:RazorLight.Internal.ViewBufferTextWriter">
+            <summary>
+            <para>
+            A <see cref="T:System.IO.TextWriter"/> that is backed by a unbuffered writer (over the Response stream) and/or a 
+            <see cref="T:RazorLight.Internal.ViewBuffer"/>
+            </para>
+            <para>
+            When <c>Flush</c> or <c>FlushAsync</c> is invoked, the writer copies all content from the buffer to
+            the writer and switches to writing to the unbuffered writer for all further write operations.
+            </para>
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.#ctor(RazorLight.Internal.ViewBuffer,System.Text.Encoding)">
+            <summary>
+            Creates a new instance of <see cref="T:RazorLight.Internal.ViewBufferTextWriter"/>.
+            </summary>
+            <param name="buffer">The <see cref="T:RazorLight.Internal.ViewBuffer"/> for buffered output.</param>
+            <param name="encoding">The <see cref="T:System.Text.Encoding"/>.</param>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.#ctor(RazorLight.Internal.ViewBuffer,System.Text.Encoding,System.Text.Encodings.Web.HtmlEncoder,System.IO.TextWriter)">
+            <summary>
+            Creates a new instance of <see cref="T:RazorLight.Internal.ViewBufferTextWriter"/>.
+            </summary>
+            <param name="buffer">The <see cref="T:RazorLight.Internal.ViewBuffer"/> for buffered output.</param>
+            <param name="encoding">The <see cref="T:System.Text.Encoding"/>.</param>
+            <param name="htmlEncoder">The HTML encoder.</param>
+            <param name="inner">
+            The inner <see cref="T:System.IO.TextWriter"/> to write output to when this instance is no longer buffering.
+            </param>
+        </member>
+        <member name="P:RazorLight.Internal.ViewBufferTextWriter.Encoding">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.Internal.ViewBufferTextWriter.IsBuffering">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.Internal.ViewBufferTextWriter.Buffer">
+            <summary>
+            Gets the <see cref="T:RazorLight.Internal.ViewBuffer"/>.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Write(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Write(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Write(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Write(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Write(Microsoft.AspNetCore.Html.IHtmlContent)">
+            <summary>
+            Writes an <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/> value.
+            </summary>
+            <param name="value">The <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/> value.</param>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Write(Microsoft.AspNetCore.Html.IHtmlContentContainer)">
+            <summary>
+            Writes an <see cref="T:Microsoft.AspNetCore.Html.IHtmlContentContainer"/> value.
+            </summary>
+            <param name="value">The <see cref="T:Microsoft.AspNetCore.Html.IHtmlContentContainer"/> value.</param>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLine(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteAsync(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteAsync(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLine">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLine(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLineAsync(System.Char)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLineAsync(System.Char[],System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLineAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.WriteLineAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.Flush">
+            <summary>
+            Copies the buffered content to the unbuffered writer and invokes flush on it.
+            Additionally causes this instance to no longer buffer and direct all write operations
+            to the unbuffered writer.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferTextWriter.FlushAsync">
+            <summary>
+            Copies the buffered content to the unbuffered writer and invokes flush on it.
+            Additionally causes this instance to no longer buffer and direct all write operations
+            to the unbuffered writer.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> that represents the asynchronous copy and flush operations.</returns>
+        </member>
+        <member name="T:RazorLight.Internal.ViewBufferValue">
+            <summary>
+            Encapsulates a string or <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/> value.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferValue.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:RazorLight.Internal.ViewBufferValue"/> with a <c>string</c> value.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:RazorLight.Internal.ViewBufferValue.#ctor(Microsoft.AspNetCore.Html.IHtmlContent)">
+            <summary>
+            Initializes a new instance of <see cref="T:RazorLight.Internal.ViewBufferValue"/> with a <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/> value.
+            </summary>
+            <param name="content">The <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/>.</param>
+        </member>
+        <member name="P:RazorLight.Internal.ViewBufferValue.Value">
+            <summary>
+            Gets the value.
+            </summary>
+        </member>
+        <member name="T:RazorLight.Internal.ExpressionRewriter">
+            <summary>
+            An expression rewriter which can hoist a simple expression lambda into a private field.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a fast <see cref="T:RazorLight.Internal.FastPropertySetter"/>.
+            This constructor does not cache the helper. For caching, use <see cref="M:RazorLight.Internal.FastPropertySetter.GetProperties(System.Type)"/>.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Internal.FastPropertySetter.Property">
+            <summary>
+            Gets the backing <see cref="T:System.Reflection.PropertyInfo"/>.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Internal.FastPropertySetter.Name">
+            <summary>
+            Gets (or sets in derived types) the property name.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Internal.FastPropertySetter.ValueGetter">
+            <summary>
+            Gets the property value getter.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Internal.FastPropertySetter.ValueSetter">
+            <summary>
+            Gets the property value setter.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.GetValue(System.Object)">
+            <summary>
+            Returns the property value for the specified <paramref name="instance"/>.
+            </summary>
+            <param name="instance">The object whose property value will be returned.</param>
+            <returns>The property value.</returns>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.SetValue(System.Object,System.Object)">
+            <summary>
+            Sets the property value for the specified <paramref name="instance" />.
+            </summary>
+            <param name="instance">The object whose property value will be set.</param>
+            <param name="value">The property value.</param>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.GetProperties(System.Reflection.TypeInfo)">
+            <summary>
+            Creates and caches fast property helpers that expose getters for every public get property on the
+            underlying type.
+            </summary>
+            <param name="typeInfo">The type info to extract property accessors for.</param>
+            <returns>A cached array of all public properties of the specified type.
+            </returns>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.GetProperties(System.Type)">
+            <summary>
+            Creates and caches fast property helpers that expose getters for every public get property on the
+            specified type.
+            </summary>
+            <param name="type">The type to extract property accessors for.</param>
+            <returns>A cached array of all public properties of the specified type.
+            </returns>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.GetVisibleProperties(System.Reflection.TypeInfo)">
+            <summary>
+            <para>
+            Creates and caches fast property helpers that expose getters for every non-hidden get property
+            on the specified type.
+            </para>
+            <para>
+            <see cref="M:GetVisibleProperties"/> excludes properties defined on base types that have been
+            hidden by definitions using the <c>new</c> keyword.
+            </para>
+            </summary>
+            <param name="typeInfo">The type info to extract property accessors for.</param>
+            <returns>
+            A cached array of all public properties of the specified type.
+            </returns>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.GetVisibleProperties(System.Type)">
+            <summary>
+            <para>
+            Creates and caches fast property helpers that expose getters for every non-hidden get property
+            on the specified type.
+            </para>
+            <para>
+            <see cref="M:GetVisibleProperties"/> excludes properties defined on base types that have been
+            hidden by definitions using the <c>new</c> keyword.
+            </para>
+            </summary>
+            <param name="type">The type to extract property accessors for.</param>
+            <returns>
+            A cached array of all public properties of the specified type.
+            </returns>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.MakeFastPropertyGetter(System.Reflection.PropertyInfo)">
+            <summary>
+            Creates a single fast property getter. The result is not cached.
+            </summary>
+            <param name="propertyInfo">propertyInfo to extract the getter for.</param>
+            <returns>a fast getter.</returns>
+            <remarks>
+            This method is more memory efficient than a dynamically compiled lambda, and about the
+            same speed.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.MakeNullSafeFastPropertyGetter(System.Reflection.PropertyInfo)">
+            <summary>
+            Creates a single fast property getter which is safe for a null input object. The result is not cached.
+            </summary>
+            <param name="propertyInfo">propertyInfo to extract the getter for.</param>
+            <returns>a fast getter.</returns>
+            <remarks>
+            This method is more memory efficient than a dynamically compiled lambda, and about the
+            same speed.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.MakeFastPropertySetter(System.Reflection.PropertyInfo)">
+            <summary>
+            Creates a single fast property setter for reference types. The result is not cached.
+            </summary>
+            <param name="propertyInfo">propertyInfo to extract the setter for.</param>
+            <returns>a fast getter.</returns>
+            <remarks>
+            This method is more memory efficient than a dynamically compiled lambda, and about the
+            same speed. This only works for reference types.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.Internal.FastPropertySetter.ObjectToDictionary(System.Object)">
+             <summary>
+             Given an object, adds each instance property with a public get method as a key and its
+             associated value to a dictionary.
+            
+             If the object is already an <see cref="T:System.Collections.Generic.IDictionary`2"/> instance, then a copy
+             is returned.
+             </summary>
+             <remarks>
+             The implementation of PropertyHelper will cache the property accessors per-type. This is
+             faster when the same type is used multiple times with ObjectToDictionary.
+             </remarks>
+        </member>
+        <member name="T:RazorLight.Internal.SymbolsUtility">
+            <summary>
+            Utility type for determining if a platform supports full pdb file generation.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Internal.SymbolsUtility.SupportsFullPdbGeneration">
+            <summary>
+            Determines if the current platform supports full pdb generation.
+            </summary>
+            <returns><c>true</c> if full pdb generation is supported; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="P:RazorLight.IPageContext.Writer">
+            <summary>
+            Gets the current writer.
+            </summary>
+            <value>The writer.</value>
+        </member>
+        <member name="P:RazorLight.IRazorLightEngine.Options">
+            <summary>
+            The Options used to configure RazorLightEngine.
+            </summary>
+            <remarks>
+            Do not call this from your code.  If you need to, use the <see cref="P:RazorLight.IRazorLightEngine.Handler"/> property instead.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.IRazorLightEngine.CompileRenderAsync``1(System.String,``0,System.Dynamic.ExpandoObject)">
+            <summary>
+            Compiles and renders a template with a given <paramref name="key"/>
+            </summary>
+            <typeparam name="T">Type of the model</typeparam>
+            <param name="key">Unique key of the template</param>
+            <param name="model">Template model</param>
+            <param name="viewBag">Dynamic viewBag of the template</param>
+            <returns>Rendered template as a string result</returns>
+        </member>
+        <member name="M:RazorLight.IRazorLightEngine.CompileRenderStringAsync``1(System.String,System.String,``0,System.Dynamic.ExpandoObject)">
+            <summary>
+            Compiles and renders a template. Template content is taken directly from <paramref name="content"/> parameter
+            </summary>
+            <typeparam name="T">Type of the model</typeparam>
+            <param name="key">Unique key of the template</param>
+            <param name="content">Content of the template</param>
+            <param name="model">Template model</param>
+            <param name="viewBag">Dynamic ViewBag</param>
+        </member>
+        <member name="M:RazorLight.IRazorLightEngine.CompileTemplateAsync(System.String)">
+            <summary>
+            Search and compile a template with a given key
+            </summary>
+            <param name="key">Unique key of the template</param>
+            <returns>An instance of a template</returns>
+        </member>
+        <member name="M:RazorLight.IRazorLightEngine.RenderTemplateAsync``1(RazorLight.ITemplatePage,``0,System.Dynamic.ExpandoObject)">
+            <summary>
+            Renders a template with a given model
+            </summary>
+            <param name="templatePage">Instance of a template</param>
+            <param name="model">Template model</param>
+            <param name="viewBag">Dynamic viewBag of the template</param>
+            <returns>Rendered string</returns>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.PageContext">
+            <summary>
+            Gets or sets the view context of the rendering template.
+            </summary>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.BodyContent">
+            <summary>
+            Gets or sets the body content.
+            </summary>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.DisableEncoding">
+            <summary>
+            Gets or sets a value indicating whether encoding is disabled for the entire template
+            </summary>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.Key">
+            <summary>
+            Gets or sets the unique key of the current template
+            </summary>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.IsLayoutBeingRendered">
+            <summary>
+            Gets or sets a flag that determines if the layout of this page is being rendered.
+            </summary>
+            <remarks>
+            Sections defined in a page are deferred and executed as part of the layout page.
+            When this flag is set, all write operations performed by the page are part of a
+            section being rendered.
+            </remarks>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.Layout">
+            <summary>
+            Gets or sets the key of a layout page.
+            </summary>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.PreviousSectionWriters">
+            <summary>
+            Gets or sets the sections that can be rendered by this page.
+            </summary>
+        </member>
+        <member name="P:RazorLight.ITemplatePage.SectionWriters">
+            <summary>
+            Gets the sections that are defined by this page.
+            </summary>
+        </member>
+        <member name="M:RazorLight.ITemplatePage.ExecuteAsync">
+            <summary>
+            Renders the page and writes the output to the <see cref="P:RazorLight.IPageContext.Writer"/> />.
+            </summary>
+            <returns>A task representing the result of executing the page.</returns>
+        </member>
+        <member name="T:RazorLight.ModelTypeInfo">
+            <summary>
+            Stores information about model of the template page
+            </summary>
+        </member>
+        <member name="P:RazorLight.ModelTypeInfo.IsStrongType">
+            <summary>
+            Indicates whether given model is not a dynamic or anonymous object
+            </summary>
+        </member>
+        <member name="P:RazorLight.ModelTypeInfo.Type">
+            <summary>
+            Real type of the model
+            </summary>
+        </member>
+        <member name="P:RazorLight.ModelTypeInfo.TemplateType">
+            <summary>
+            Type that will be used on compilation of the template.
+            If <see cref="P:RazorLight.ModelTypeInfo.Type"/> is anonymous or dynamic - <see cref="P:RazorLight.ModelTypeInfo.TemplateType"/> becomes <see cref="T:System.Dynamic.ExpandoObject"/>
+            </summary>
+        </member>
+        <member name="P:RazorLight.ModelTypeInfo.TemplateTypeName">
+            <summary>
+            Name of the type that will be used on compilation of the template
+            </summary>
+        </member>
+        <member name="M:RazorLight.ModelTypeInfo.CreateTemplateModel(System.Object)">
+            <summary>
+            Transforms object into template type
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngine.CompileRenderAsync``1(System.String,``0,System.Dynamic.ExpandoObject)">
+            <inheritdoc cref="T:RazorLight.IRazorLightEngine"/>
+        </member>
+        <member name="M:RazorLight.RazorLightEngine.CompileRenderStringAsync``1(System.String,System.String,``0,System.Dynamic.ExpandoObject)">
+            <inheritdoc cref="T:RazorLight.IRazorLightEngine"/>
+        </member>
+        <member name="M:RazorLight.RazorLightEngine.CompileTemplateAsync(System.String)">
+            <inheritdoc cref="T:RazorLight.IRazorLightEngine"/>
+        </member>
+        <member name="M:RazorLight.RazorLightEngine.RenderTemplateAsync``1(RazorLight.ITemplatePage,``0,System.Dynamic.ExpandoObject)">
+            <inheritdoc cref="T:RazorLight.IRazorLightEngine"/>
+        </member>
+        <member name="M:RazorLight.RazorLightEngine.RenderTemplateAsync``1(RazorLight.ITemplatePage,``0,System.IO.TextWriter,System.Dynamic.ExpandoObject)">
+            <summary>
+            Renders a template to the specified <paramref name="textWriter"/>
+            </summary>
+            <param name="templatePage">Instance of a template</param>
+            <param name="model">Template model</param>
+            <param name="modelType">Type of the model</param>
+            <param name="viewBag">Dynamic viewBag of the page</param>
+            <param name="textWriter">Output</param>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.UseProject(RazorLight.Razor.RazorLightProject)">
+            <summary>
+            Configures RazorLight to use a project.  Use UseEmbeddedResourcesProject 
+            </summary>
+            <param name="project"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.UseFileSystemProject(System.String)">
+            <summary>
+            Configures RazorLight to use a project whose persistent store is the file system.
+            </summary>
+            <param name="root"></param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.UseFileSystemProject(System.String,System.String)">
+            <summary>
+            Configures RazorLight to use a project whose persistent store is the file system.
+            </summary>
+            <param name="root">Directory path to the root folder containing your Razor markup files.</param>
+            <param name="extension">If you wish, you can use a different extension than .cshtml.</param>
+            <returns><see cref="T:RazorLight.RazorLightEngineBuilder"/></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.UseEmbeddedResourcesProject(System.Type)">
+            <summary>
+            Configures RazorLight to use a project whose persistent store an assembly manifest resource stream.
+            </summary>
+            <param name="rootType">Any type in the root namespace (prefix) for your assembly manifest resource stream.</param>
+            <returns><see cref="T:RazorLight.Razor.EmbeddedRazorProject"/></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.UseEmbeddedResourcesProject(System.Reflection.Assembly,System.String)">
+            <summary>
+            Configures RazorLight to use a project whose persistent store an assembly manifest resource stream.
+            </summary>
+            <param name="assembly">Assembly containing embedded resources</param>
+            <param name="rootNamespace">The root namespace (prefix) for your assembly manifest resource stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.DisableEncoding">
+            <summary>
+            Disables encoding of HTML entities in variables.
+            </summary>
+            <example>
+            The model contains a property with value "&gt;hello&lt;".
+            
+            In the rendered template this will be:
+            
+            <code>
+            &gt;hello&lt;
+            </code>
+            </example>
+            <returns>A <see cref="T:RazorLight.RazorLightEngineBuilder"/></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineBuilder.EnableEncoding">
+            <summary>
+            Enables encoding of HTML entities in variables.
+            </summary>
+            <example>
+            The model contains a property with value "&gt;hello&lt;".
+            
+            In the rendered template this will be:
+            
+            <code>
+            &amp;gt;hello&amp;lt;
+            </code>
+            </example>
+            <returns>A <see cref="T:RazorLight.RazorLightEngineBuilder"/></returns>
+        </member>
+        <member name="M:RazorLight.RazorLightEngineWithFileSystemProjectFactory.Create(System.Reflection.Assembly,System.String)">
+            <summary>
+            Creates a RazorLightEngine instance using FileSystemProject.
+            </summary>
+            <param name="operatingAssembly">By default, uses Assembly.GetCallingAssembly method.  If the method that calls GetCallingAssembly method is expanded inline
+            by the just-in-time (JIT) compiler, or if its caller is expanded inline, the assembly that is returned by GetCallingAssembly may differ unexpectedly.
+            To protect against unexpected behavior, it is best practice to pass in an explicit Assembly via operatingAssembly.</param>
+            <param name="fileSystemProjectRoot">By default, uses Directory.GetCurrentDirectory method.</param>
+        </member>
+        <member name="P:RazorLight.RazorLightOptions.DisableEncoding">
+            <summary>
+            Settings this to <c>true</c> will disable HTML encoding in all templates.
+            It can be re-enabled by setting <c>DisableEncoding = false</c> in the
+            template.
+            </summary>
+        </member>
+        <member name="T:RazorLight.Razor.FileSystemRazorProject">
+            <summary>
+            Specifies RazorProject where templates are located in files
+            </summary>
+        </member>
+        <member name="M:RazorLight.Razor.FileSystemRazorProject.GetItemAsync(System.String)">
+            <summary>
+            Looks up for the template source with a given <paramref name="templateKey" />
+            </summary>
+            <param name="templateKey">Unique template key</param>
+            <returns></returns>
+        </member>
+        <member name="P:RazorLight.Razor.FileSystemRazorProject.Root">
+            <summary>
+            Root folder
+            </summary>
+        </member>
+        <member name="M:RazorLight.Razor.RazorLightProject.GetItemAsync(System.String)">
+            <summary>
+            Looks up for the template source with a given <paramref name="templateKey"/>
+            </summary>
+            <param name="templateKey">Unique template key</param>
+            <returns></returns>
+        </member>
+        <member name="M:RazorLight.Razor.RazorLightProject.GetImportsAsync(System.String)">
+            <summary>
+            Looks up for the ViewImports content for the given template
+            </summary>
+            <param name="templateKey"></param>
+            <returns></returns>
+        </member>
+        <member name="P:RazorLight.Razor.RazorLightProjectItem.Key">
+            <summary>
+            Unique key of the template that was searched
+            </summary>
+        </member>
+        <member name="P:RazorLight.Razor.RazorLightProjectItem.Exists">
+            <summary>
+            Gets if template exists
+            </summary>
+        </member>
+        <member name="M:RazorLight.Razor.RazorLightProjectItem.Read">
+            <summary>
+            Returns 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:RazorLight.Razor.RazorLightTemplateAttribute.Key">
+            <summary>
+            Gets the key of the view.
+            </summary>
+        </member>
+        <member name="P:RazorLight.Razor.RazorLightTemplateAttribute.TemplateType">
+            <summary>
+            Gets the template type.
+            </summary>
+        </member>
+        <member name="T:RazorLight.TagHelpers.DefaultTagHelperActivator">
+            <summary>
+            Default implementation of <see cref="T:RazorLight.TagHelpers.ITagHelperActivator"/>.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TagHelpers.DefaultTagHelperActivator.#ctor(RazorLight.TagHelpers.ITypeActivatorCache)">
+            <summary>
+            Instantiates a new <see cref="T:RazorLight.TagHelpers.DefaultTagHelperActivator"/> instance.
+            </summary>
+            <param name="typeActivatorCache">The <see cref="T:RazorLight.TagHelpers.ITypeActivatorCache"/>.</param>
+        </member>
+        <member name="M:RazorLight.TagHelpers.DefaultTagHelperActivator.Create``1(RazorLight.PageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:RazorLight.TagHelpers.DefaultTagHelperFactory">
+            <summary>
+            Default implementation for <see cref="T:RazorLight.TagHelpers.ITagHelperFactory"/>.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TagHelpers.DefaultTagHelperFactory.#ctor(RazorLight.TagHelpers.ITagHelperActivator)">
+            <summary>
+            Initializes a new <see cref="T:RazorLight.TagHelpers.DefaultTagHelperFactory"/> instance.
+            </summary>
+            <param name="activator">
+            The <see cref="T:RazorLight.TagHelpers.ITagHelperActivator"/> used to create tag helper instances.
+            </param>
+        </member>
+        <member name="M:RazorLight.TagHelpers.DefaultTagHelperFactory.CreateTagHelper``1(RazorLight.PageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:RazorLight.TagHelpers.ITagHelperActivator">
+            <summary>
+            Provides methods to create a tag helper.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TagHelpers.ITagHelperActivator.Create``1(RazorLight.PageContext)">
+            <summary>
+            Creates an <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/>.
+            </summary>
+            <typeparam name="TTagHelper">The <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/> type.</typeparam>
+            <param name="context">The <see cref="!:ViewContext"/> for the executing view.</param>
+            <returns>The tag helper.</returns>
+        </member>
+        <member name="T:RazorLight.TagHelpers.ITagHelperFactory">
+            <summary>
+            Provides methods to create and initialize tag helpers.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TagHelpers.ITagHelperFactory.CreateTagHelper``1(RazorLight.PageContext)">
+            <summary>
+            Creates a new tag helper for the specified <paramref name="context"/>.
+            </summary>
+            <param name="context"><see cref="!:ViewContext"/> for the executing view.</param>
+            <returns>The tag helper.</returns>
+        </member>
+        <member name="T:RazorLight.TagHelpers.ITagHelperInitializer`1">
+            <summary>
+            Initializes an <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/> before it's executed.
+            </summary>
+            <typeparam name="TTagHelper">The <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/> type.</typeparam>
+        </member>
+        <member name="M:RazorLight.TagHelpers.ITagHelperInitializer`1.Initialize(`0,RazorLight.PageContext)">
+            <summary>
+            Initializes the <typeparamref name="TTagHelper"/>.
+            </summary>
+            <param name="helper">The <typeparamref name="TTagHelper"/> to initialize.</param>
+            <param name="context">The <see cref="T:RazorLight.PageContext"/> for the executing view.</param>
+        </member>
+        <member name="M:RazorLight.TagHelpers.ITypeActivatorCache.CreateInstance``1(System.IServiceProvider,System.Type)">
+            <summary>
+            Creates an instance of <typeparamref name="TInstance"/>.
+            </summary>
+            <param name="serviceProvider">The <see cref="T:System.IServiceProvider"/> used to resolve dependencies for
+            <paramref name="optionType"/>.</param>
+            <param name="optionType">The <see cref="T:System.Type"/> of the <typeparamref name="TInstance"/> to create.</param>
+        </member>
+        <member name="T:RazorLight.TagHelpers.TypeActivatorCache">
+            <summary>
+            Caches <see cref="T:Microsoft.Extensions.DependencyInjection.ObjectFactory"/> instances produced by 
+            <see cref="M:Microsoft.Extensions.DependencyInjection.ActivatorUtilities.CreateFactory(System.Type,System.Type[])"/>.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TagHelpers.TypeActivatorCache.CreateInstance``1(System.IServiceProvider,System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:RazorLight.TemplatePage.RenderBody">
+            <summary>
+            In a Razor layout page, renders the portion of a content page that is not within a named section.
+            </summary>
+            <returns>The HTML content to render.</returns>
+        </member>
+        <member name="M:RazorLight.TemplatePage.IgnoreBody">
+            <summary>
+            In a Razor layout page, ignores rendering the portion of a content page that is not within a named section.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TemplatePage.DefineSection(System.String,RazorLight.Internal.RenderAsyncDelegate)">
+            <summary>
+            Creates a named content section in the page that can be invoked in a Layout page using
+            <see cref="M:RazorLight.TemplatePage.RenderSection(System.String)"/> or <see cref="M:RazorLight.TemplatePage.RenderSectionAsync(System.String,System.Boolean)"/>.
+            </summary>
+            <param name="name">The name of the section to create.</param>
+            <param name="section">The <see cref="T:RazorLight.Internal.RenderAsyncDelegate"/> to execute when rendering the section.</param>
+        </member>
+        <member name="M:RazorLight.TemplatePage.IsSectionDefined(System.String)">
+            <summary>
+            Returns a value that indicates whether the specified section is defined in the content page.
+            </summary>
+            <param name="name">The section name to search for.</param>
+            <returns><c>true</c> if the specified section is defined in the content page; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:RazorLight.TemplatePage.RenderSection(System.String)">
+            <summary>
+            In layout pages, renders the content of the section named <paramref name="name"/>.
+            </summary>
+            <param name="name">The name of the section to render.</param>
+            <returns>An empty <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/>.</returns>
+            <remarks>The method writes to the <see cref="!:RazorPageBase.Output"/> and the value returned is a token
+            value that allows the Write (produced due to @RenderSection(..)) to succeed. However the
+            value does not represent the rendered content.</remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePage.RenderSection(System.String,System.Boolean)">
+            <summary>
+            In layout pages, renders the content of the section named <paramref name="name"/>.
+            </summary>
+            <param name="name">The section to render.</param>
+            <param name="required">Indicates if this section must be rendered.</param>
+            <returns>An empty <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/>.</returns>
+            <remarks>The method writes to the <see cref="!:RazorPageBase.Output"/> and the value returned is a token
+            value that allows the Write (produced due to @RenderSection(..)) to succeed. However the
+            value does not represent the rendered content.</remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePage.RenderSectionAsync(System.String)">
+            <summary>
+            In layout pages, asynchronously renders the content of the section named <paramref name="name"/>.
+            </summary>
+            <param name="name">The section to render.</param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task`1"/> that on completion returns an empty <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/>.
+            </returns>
+            <remarks>The method writes to the <see cref="!:RazorPageBase.Output"/> and the value returned is a token
+            value that allows the Write (produced due to @RenderSection(..)) to succeed. However the
+            value does not represent the rendered content.</remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePage.RenderSectionAsync(System.String,System.Boolean)">
+            <summary>
+            In layout pages, asynchronously renders the content of the section named <paramref name="name"/>.
+            </summary>
+            <param name="name">The section to render.</param>
+            <param name="required">Indicates the <paramref name="name"/> section must be registered
+            (using <c>@section</c>) in the page.</param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task`1"/> that on completion returns an empty <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/>.
+            </returns>
+            <remarks>The method writes to the <see cref="!:RazorPageBase.Output"/> and the value returned is a token
+            value that allows the Write (produced due to @RenderSection(..)) to succeed. However the
+            value does not represent the rendered content.</remarks>
+            <exception cref="T:System.InvalidOperationException">if <paramref name="required"/> is <c>true</c> and the section
+            was not registered using the <c>@section</c> in the Razor page.</exception>
+        </member>
+        <member name="M:RazorLight.TemplatePage.IgnoreSection(System.String)">
+            <summary>
+            In layout pages, ignores rendering the content of the section named <paramref name="sectionName"/>.
+            </summary>
+            <param name="sectionName">The section to ignore.</param>
+        </member>
+        <member name="M:RazorLight.TemplatePage.EnsureRenderedBodyOrSections">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.PageContext">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.BodyContent">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.IsLayoutBeingRendered">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.Layout">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.PreviousSectionWriters">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.SectionWriters">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.HtmlEncoder">
+            <summary>
+            Gets the <see cref="T:System.Text.Encodings.Web.HtmlEncoder"/> to use when this template />
+            handles non-<see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/> C# expressions.
+            </summary>
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:RazorLight.TemplatePageBase.Output">
+            <summary>
+            Gets the <see cref="T:System.IO.TextWriter"/> that the template is writing output to.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.ExecuteAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.FlushAsync">
+            <summary>
+            Invokes <see cref="M:System.IO.TextWriter.FlushAsync"/> on <see cref="P:RazorLight.TemplatePageBase.Output"/> and <see cref="m:Stream.FlushAsync"/>
+            on the response stream, writing out any buffered content to the <see cref="!:HttpResponse.Body"/>.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task`1"/> that represents the asynchronous flush operation and on
+            completion returns an empty <see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/>.</returns>
+            <remarks>The value returned is a token value that allows FlushAsync to work directly in an HTML
+            section. However the value does not represent the rendered content.
+            This method also writes out headers, so any modifications to headers must be done before
+            <see cref="M:RazorLight.TemplatePageBase.FlushAsync"/> is called. For example, call <see cref="!:SetAntiforgeryCookieAndHeader"/> to send
+            antiforgery cookie token and X-Frame-Options header to client before this method flushes headers out.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.Raw(System.String)">
+            <summary>
+            Returns the specified string as a raw string. This will ensure it is not encoded.
+            </summary>
+            <param name="rawString">The raw string to write.</param>
+            <returns>An instance of <see cref="T:RazorLight.Text.IRawString"/>.</returns>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.CreateTagHelper``1">
+            <summary>
+            Creates and activates a <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/>.
+            </summary>
+            <typeparam name="TTagHelper">A <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/> type.</typeparam>
+            <returns>The activated <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/>.</returns>
+            <remarks>
+            <typeparamref name="TTagHelper"/> must have a parameterless constructor.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.StartTagHelperWritingScope(System.Text.Encodings.Web.HtmlEncoder)">
+            <summary>
+            Starts a new writing scope and optionally overrides <see cref="P:RazorLight.TemplatePageBase.HtmlEncoder"/> within that scope.
+            </summary>
+            <param name="encoder">
+            The <see cref="T:System.Text.Encodings.Web.HtmlEncoder"/> to use when this <see cref="T:RazorLight.TemplatePageBase"/> handles
+            non-<see cref="T:Microsoft.AspNetCore.Html.IHtmlContent"/> C# expressions. If <c>null</c>, does not change <see cref="P:RazorLight.TemplatePageBase.HtmlEncoder"/>.
+            </param>
+            <remarks>
+            All writes to the <see cref="P:RazorLight.TemplatePageBase.Output"/> or <see cref="!:ViewContext.Writer"/> after calling this method will
+            be buffered until <see cref="M:RazorLight.TemplatePageBase.EndTagHelperWritingScope"/> is called.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.EndTagHelperWritingScope">
+            <summary>
+            Ends the current writing scope that was started by calling <see cref="M:RazorLight.TemplatePageBase.StartTagHelperWritingScope(System.Text.Encodings.Web.HtmlEncoder)"/>.
+            </summary>
+            <returns>The buffered <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContent"/>.</returns>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.BeginWriteTagHelperAttribute">
+            <summary>
+            Starts a new scope for writing <see cref="T:Microsoft.AspNetCore.Razor.TagHelpers.ITagHelper"/> attribute values.
+            </summary>
+            <remarks>
+            All writes to the <see cref="P:RazorLight.TemplatePageBase.Output"/> or <see cref="!:ViewContext.Writer"/> after calling this method will
+            be buffered until <see cref="M:RazorLight.TemplatePageBase.EndWriteTagHelperAttribute"/> is called.
+            The content will be buffered using a shared <see cref="T:System.IO.StringWriter"/> within this <see cref="!:RazorPage"/>
+            Nesting of <see cref="M:RazorLight.TemplatePageBase.BeginWriteTagHelperAttribute"/> and <see cref="M:RazorLight.TemplatePageBase.EndWriteTagHelperAttribute"/> method calls
+            is not supported.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.EndWriteTagHelperAttribute">
+            <summary>
+            Ends the current writing scope that was started by calling <see cref="M:RazorLight.TemplatePageBase.BeginWriteTagHelperAttribute"/>.
+            </summary>
+            <returns>The content buffered by the shared <see cref="T:System.IO.StringWriter"/> of this <see cref="!:RazorPage"/>.</returns>
+            <remarks>
+            This method assumes that there will be no nesting of <see cref="M:RazorLight.TemplatePageBase.BeginWriteTagHelperAttribute"/>
+            and <see cref="M:RazorLight.TemplatePageBase.EndWriteTagHelperAttribute"/> method calls.
+            </remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.DefineSection(System.String,System.Func{System.Object,System.Threading.Tasks.Task})">
+            <summary>
+            Creates a named content section in the page that can be invoked in a Layout page using
+            <c>RenderSection</c> or <c>RenderSectionAsync</c>
+            </summary>
+            <param name="name">The name of the section to create.</param>
+            <param name="section">The delegate to execute when rendering the section.</param>
+            <remarks>This is a temporary placeholder method to support ASP.NET Core 2.0.0 editor code generation.</remarks>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.DefineSection(System.String,RazorLight.Internal.RenderAsyncDelegate)">
+            <summary>
+            Creates a named content section in the page that can be invoked in a Layout page using
+            <c>RenderSection</c> or <c>RenderSectionAsync</c>
+            </summary>
+            <param name="name">The name of the section to create.</param>
+            <param name="section">The <see cref="T:RazorLight.Internal.RenderAsyncDelegate"/> to execute when rendering the section.</param>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.Write(System.Object)">
+            <summary>
+            Writes the specified <paramref name="value"/> with HTML encoding to <see cref="P:RazorLight.TemplatePageBase.Output"/>.
+            </summary>
+            <param name="value">The <see cref="T:System.Object"/> to write.</param>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.Write(System.String)">
+            <summary>
+            Writes the specified <paramref name="value"/> with HTML encoding to <see cref="P:RazorLight.TemplatePageBase.Output"/>.
+            </summary>
+            <param name="value">The <see cref="T:System.String"/> to write.</param>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.WriteLiteral(System.Object)">
+            <summary>
+            Writes the specified <paramref name="value"/> without HTML encoding to <see cref="P:RazorLight.TemplatePageBase.Output"/>.
+            </summary>
+            <param name="value">The <see cref="T:System.Object"/> to write.</param>
+        </member>
+        <member name="M:RazorLight.TemplatePageBase.WriteLiteral(System.String)">
+            <summary>
+            Writes the specified <paramref name="value"/> without HTML encoding to <see cref="P:RazorLight.TemplatePageBase.Output"/>.
+            </summary>
+            <param name="value">The <see cref="T:System.String"/> to write.</param>
+        </member>
+        <member name="T:RazorLight.TemplatePage`1">
+            <summary>
+            Represents the properties and methods that are needed in order to render a template that uses Razor syntax.
+            </summary>
+            <typeparam name="TModel">The type of the model.</typeparam>
+        </member>
+        <member name="P:RazorLight.TemplatePage`1.Model">
+            <summary>
+            Gets the Model property.
+            </summary>
+        </member>
+        <member name="M:RazorLight.TemplateRenderer.RenderAsync(RazorLight.ITemplatePage)">
+            <inheritdoc />
+        </member>
+        <member name="T:RazorLight.Text.IRawString">
+            <summary>
+            Defines the required contract for implementing an unencoded string.
+            </summary>
+        </member>
+        <member name="T:RazorLight.Text.RawString">
+            <summary>
+            Represents an unencoded string.
+            </summary>
+        </member>
+        <member name="M:RazorLight.Text.RawString.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of <see cref="T:RazorLight.Text.RawString"/>
+            </summary>
+            <param name="value">The value</param>
+        </member>
+    </members>
+</doc>

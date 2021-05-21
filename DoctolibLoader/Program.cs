@@ -22,9 +22,10 @@ namespace DoctolibLoader
 
         static void Main(string[] args)
         {
+
+
            
-
-
+            
             while (true)
             {
                 DateTime current = DateTime.Now;
@@ -59,7 +60,7 @@ namespace DoctolibLoader
                 var client = new WebClient();
                 string content = client.DownloadString(url);
                 ResponseJson response = JsonConvert.DeserializeObject<ResponseJson>(content);
-                if (response.total > 0)
+                if (response.total > 1)
                 {
                     Console.WriteLine($"Grund=[{reason}], Verfuegbar={response.total}", System.Drawing.Color.Green);
                     AnnoyTheFuckOut();
@@ -69,8 +70,8 @@ namespace DoctolibLoader
                     Console.WriteLine($"Grund=[{reason}], Verfuegbar={response.total}", System.Drawing.Color.Red);
                 }
             }
-            catch (Exception e){
-
+            catch (Exception ex){
+                Console.WriteLine("eRROR");
             }
 
         }
